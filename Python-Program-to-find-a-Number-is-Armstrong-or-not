@@ -1,0 +1,29 @@
+#Python Program to find a Number is Armstrong or not
+#Method 1: Using Iteration
+number = int(input())
+num = number
+length  = len(str(num))
+digit,sum = 0,0
+for i in range(length):
+    digit = int(num%10)
+    num = num/10
+    sum += pow(digit,length)
+if number == sum:
+    print('amstrong number')
+else:
+    print('not a amstrong number')
+
+#Method 2: Using Recursion
+num = int(input())
+temp = num
+sum = 0
+lene = len(str(num))
+def check(temp,lene,sum):
+    if temp == 0:
+        return sum
+    sum += pow((int(temp%10)),lene)
+    return check(temp/10,lene,sum)
+if check(temp,lene,sum) == num:
+    print('its a amstrong number')
+else:
+    print('not a armstrong number')
